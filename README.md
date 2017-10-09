@@ -70,6 +70,8 @@ git clone https://<token>@<repo> ~/app
 cd ~/app && docker-compose build && docker-compose up -d
 ```
 
+Note: Logs for `User Data` cloud init scripts can be found here: `/var/log/cloud-init-output.log`.
+
 ### 2b) (Re-)Deploy using SSH
 1. SSH into the droplet
   - `ssh root@<ip>`
