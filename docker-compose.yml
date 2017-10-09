@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+
+  # 'app' - Assign a wildcard virtual hostname
+  app:
+    build: .
+    environment:
+      - VIRTUAL_HOST=*.example.com
+    logging:
+      options:
+        max-size: 100m
+    restart: always
+
+  # 'ngninx proxy' - Listens on port 80
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    logging:
+      options:
+        max-size: 100m
+    restart: always
