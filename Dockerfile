@@ -9,8 +9,8 @@ WORKDIR /go/src/app
 COPY src /go/src/app
 
 # Download and install any required third party dependencies into the container.
-RUN go-wrapper download
-RUN go-wrapper install
+RUN go get -d -v ./...
+RUN go install -v ./...
 
 # Set the PORT environment variable inside the container
 ENV PORT 8080
